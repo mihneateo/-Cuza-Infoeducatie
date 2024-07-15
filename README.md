@@ -18,4 +18,5 @@ Cuza dispune, de asemenea, de un senzor ultrasonic detectează prezența persoan
 Funcționalitățile de text-to-speech (TTS) și recunoaștere vocală îi permit să înțeleagă și să răspundă la comenzi vocale.Capacitățile sale avansate de inteligență artificială sunt susținute de integrarea OpenAI ChatGPT API, oferindu-i abilități de conversație și răspuns inteligente, adecvate pentru o varietate de scenarii educaționale și interactive. 
 Aceste tehnologii combinate fac din Cuza un robot umanoid sofisticat.
 
-![Alt text](9d6ff53a-185b-481a-bed6-c0036d3d63fd.jpg)
+
+<img src="9d6ff53a-185b-481a-bed6-c0036d3d63fd.jpg" width="300" height="300" />

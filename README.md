@@ -19,4 +19,4 @@ Funcționalitățile de text-to-speech (TTS) și recunoaștere vocală îi permi
 Aceste tehnologii combinate fac din Cuza un robot umanoid sofisticat.
 
 
-<img src="9d6ff53a-185b-481a-bed6-c0036d3d63fd.jpg" width="300" height="300" />
+<img src="9d6ff53a-185b-481a-bed6-c0036d3d63fd.jpg" width="450" height="300" />

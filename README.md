@@ -1,3 +1,4 @@
+Descriere proiect:
 Cuza este un robot umanoid avansat, echipat cu 22 de servomotoare, care îi conferă o mobilitate impresionantă în partea superioară a corpului.
 Capul, mâinile și umerii săi sunt complet funcționale, permițându-i să execute o varietate de gesturi și mișcări precise.
 Una dintre cele mai remarcabile caracteristici ale lui Cuza este librăria sa de traducere, care îi permite să faciliteze conversațiile între doi oameni care nu vorbesc o limbă comună.
@@ -7,6 +8,7 @@ Această capacitate de a înțelege și de a genera răspunsuri complexe îl fac
 De asemenea, acesta poate fi controlat de la distanță prin intermediul unui webserver conectat la tehnologii de realitate virtuală (VR) și realitate augmentată (AR), oferind utilizatorilor o experiență de control intuitivă și imersivă.
 Cuza reprezintă o sinteză a tehnologiilor emergente cu un caracter profund educațional, oferind funcții versatile si captivante pentru explorarea și învățarea noilor tehnologii și abilități.
 
+Tehnologii:
 Cuza este echipat cu o serie de tehnologii avansate care îi permit să funcționeze eficient și să interacționeze într-un mod complex și captivant.
 La baza sa, Cuza utilizează un Raspberry Pi 5, care asigură puterea de calcul necesară pentru operațiunile sale. 
 Controlul precis al celor 22 de servomotoare este realizat prin intermediul unui driver servo Adafruit compatibil cu protocolul I2C, oferindu-i astfel flexibilitate și posibilitatea de a fi upgradat în viitor.

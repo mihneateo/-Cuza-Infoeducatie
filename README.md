@@ -17,3 +17,5 @@ Integrarea tehnologiilor VR/AR și a două webservere permite controlul și inte
 Cuza dispune, de asemenea, de un senzor ultrasonic detectează prezența persoanelor în apropiere, în timp ce senzorul DHT11 monitorizează temperatura și umiditatea ambientală, precum și de un microfon și difuzoare, esențiale pentru comunicare vocală.
 Funcționalitățile de text-to-speech (TTS) și recunoaștere vocală îi permit să înțeleagă și să răspundă la comenzi vocale.Capacitățile sale avansate de inteligență artificială sunt susținute de integrarea OpenAI ChatGPT API, oferindu-i abilități de conversație și răspuns inteligente, adecvate pentru o varietate de scenarii educaționale și interactive. 
 Aceste tehnologii combinate fac din Cuza un robot umanoid sofisticat.
+
+![Alt text](images/example.png)

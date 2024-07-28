@@ -1,5 +1,3 @@
-david
-
 import speech_recognition as sr
 import re
 import json
@@ -13,7 +11,8 @@ import gpiod
 import time
 
 from adafruit_servokit import ServoKit
-kit = ServoKit(channels=16, i2c=(busio.I2C(board.SCL, board.SDA)))
+#kit = ServoKit(channels=16,address=0x40)
+#kit1= ServoKit(channels=16,address=0x41)
 r = sr.Recognizer()
 engine = pyttsx3.init()
 model_engine = "gpt-3.5-turbo"
@@ -91,34 +90,27 @@ def listen_for_command():
             case "search":
                 say("Got that!")
                 print(speech_line)
-		kit.servo[11].angle=180
+               ## deschide gura kit1.servo[2].angle=180
                 say(ask_chatgpt(speech_line))
-		kit.servo[11].angle=0
+                ##inchide kit1.servo[2].angle=0
             case "hi":
                 print("HI")
-		kit.servo[14].angle = 80
-		time.sleep(2)
-		kit.servo[14].angle=90
-		time.sleep(1)
-		kit.servo[0].angle=80
-		kit.servo[1].angle=80
-		kit.servo[2].angle=80
-		kit.servo[3].angle=80
-		kit.servo[4].angle=80
-		time.sleep(1)
-		kit.servo[0].angle=90
-		kit.servo[1].angle=90
-		kit.servo[2].angle=90
-		kit.servo[3].angle=90
-		kit.servo[4].angle=90
-		time.sleep(1)
-		kit.servo[14].angle=100
-		time.sleep(1)
-		kit.servo[14].angle=90
+               # kit.servo[14].angle=180
+               # time.sleep(2)
+               # kit.servo[14].angle=90
+               # kit.servo[12].angle = 80
+               # time.sleep(2)
+               # kit.servo[12].angle=90
+                #time.sleep(1)
+                #kit.servo[0].angle=180
+               # kit.servo[1].angle=180
+               # kit.servo[2].angle=180
+               # kit.servo[3].angle=180
+               # kit.servo[4].angle=180
             case "introduce yourself":
-		kit.servo[11].angle=180
-                say("aaa")
-		kit.servo[11].angle=0
+		       ## deshide  kit1.servo[1].angle=180
+                say("Salut,numele meu este Cuza si sunt in fata dumneavoastra astazi pentru a ma prezenta.Sunt un robot umanoid printat in intregime 3d,scopul meu este de a ajuta omul in orice sarcina fie ca este interactionarea cu copii sau munca fizica,pot face orice,mainile si capul meu au o mobilitate impresionanta pentru a imita perfect actiunile unui om.De asemenea,sunt primul robot umanoid aprobat si sustinut de ministerul inovarii si al digitalizari,dar cel mai important,sunt construit de cei doi elevi ce se afla astazi langa mine.Va multumesc siva rog sa imi scuzati pronuntia,inca invat limba romana")
+		     ##inchide   kit1.servo[1].angle=0
             case "translate":
                 langs = []
                 for word in res:
@@ -159,6 +151,7 @@ def get_language_code(language_name):
 
 
 def main():
+    using_stt=True
     engine.setProperty('voice', "ro")
     engine.setProperty('rate', newVoiceRate)
     listen_for_command()
@@ -171,3 +164,4 @@ if __name__ == "__main__":
     else:
         using_stt = False
     main()
+

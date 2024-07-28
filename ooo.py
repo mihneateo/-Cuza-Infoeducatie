@@ -1,4 +1,4 @@
-ooo
+
 #!/usr/bin/env python3
 
 
@@ -10,8 +10,9 @@ import busio
 import gpiod
 import time
 from adafruit_servokit import ServoKit
-kit = ServoKit(channels=16, i2c=(busio.I2C(board.SCL, board.SDA)))
-host_name = '192.168.1.118'  # IP Address of Raspberry Pi
+kit = ServoKit(channels=16,address=0x40)
+kit1=ServoKit(channels=16,address=0x41)
+host_name = '192.168.142.198'  # IP Address of Raspberry Pi
 host_port = 8000
 
 
@@ -46,10 +47,8 @@ class MyServer(BaseHTTPRequestHandler):
            <form action="/" method="POST">
                Turn LED :
                <input type="submit" name="submit" value="shake">
-               <input type="submit" name="submit" value="nod">
-	       <input type="submit" name="submit" value="open">
+	           <input type="submit" name="submit" value="open">
                <input type="submit" name="submit" value="close">
-               <input type="submit" name="submit" value="hands">
            </form>
            </body>
            </html>
@@ -59,81 +58,51 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(html.format(temp[5:]).encode("utf-8"))
 
     def do_POST(self):
-
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length).decode("utf-8")
         post_data = post_data.split("=")[1]
-
-        
-
         if post_data == 'shake':
-		print("shake")
-		kit.servo[14].angle=80
-		kit.servo[15].angle=80
-		time.sleep(2)
-		kit.servo[14].angle=90
-		kit.servo[15].angle=90
-		time.sleep(2)
-		kit.servo[14].angle=100
-		kit.servo[15].angle=100
-		time.sleep(2)
-		kit.servo[14].angle=90
-		kit.servo[15].angle=90
-	if post_data == 'nod':
-		print("nod")
-		kit.servo[12].angle=180
-		time.sleep(1)
-		kit.servo[12].angle=0
-		time.sleep(1)
-		kit.servo[10].angle=100
-		time.sleep(1)
-		kit.servo[10].angle=0
-	if post_data == 'open':
-		print("open") 
-		kit.servo[11].angle=0
-	if post_data == 'close':
-		print("close")
-		kit.servo[11].angle=180
-	if post_data == 'hands':
-		print("hands") 
-		kit.servo[0].angle=80
-		kit.servo[1].angle=80
-		kit.servo[2].angle=80
-		kit.servo[3].angle=80
-		kit.servo[4].angle=80
-		time.sleep(1)
-		kit.servo[0].angle=90
-		kit.servo[1].angle=90
-		kit.servo[2].angle=90
-		kit.servo[3].angle=90
-		kit.servo[4].angle=90
-		time.sleep(1)
-		kit.servo[5].angle=80
-		kit.servo[6].angle=80
-		kit.servo[7].angle=80
-		kit.servo[8].angle=80
-		kit.servo[9].angle=80
-		time.sleep(1)
-		kit.servo[5].angle=90
-		kit.servo[6].angle=90
-		kit.servo[7].angle=90
-		kit.servo[8].angle=90
-		kit.servo[9].angle=90
-		time.sleep(1)
-
-
-
+            print("shake")
+            kit.servo[14].angle=0
+            time.sleep(1)
+            kit.servo[14].angle=90
+            kit.servo[12].angle=180
+            time.sleep(1)
+            kit.servo[12].angle=90
+            kit.servo[0].angle=180
+            kit.servo[1].angle=180
+            kit.servo[2].angle=180
+            kit.servo[3].angle=180
+            kit.servo[4].angle=180
+            time.sleep(2)
+            kit.servo[0].angle=0
+            kit.servo[1].angle=0
+            kit.servo[2].angle=0
+            kit.servo[3].angle=0
+            kit.servo[4].angle=0
+            time.sleep(1)
+            kit.servo[14].angle=180
+            time.sleep(1)
+            kit.servo[14].angle=90
+            time.sleep(1)
+            kit.servo[12].angle=0
+            time.sleep(1)
+            kit.servo[12].angle=90
+        if post_data == 'open':
+            print("open") 
+            kit1.servo[1].angle=0
+        if post_data == 'close':
+            print("close")
+            kit1.servo[1].angle=180
         print("LED is {}".format(post_data))
         self._redirect('/')  # Redirect back to the root url
 
 
 # # # # # Main # # # # #
 
-if __name__ == '__main__':
+def start():
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
+    http_server.serve_forever()
 
-    try:
-        http_server.serve_forever()
-    except KeyboardInterrupt:
-        http_server.server_close()
+

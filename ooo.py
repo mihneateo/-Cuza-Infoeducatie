@@ -8,7 +8,7 @@ import time
 from adafruit_servokit import ServoKit
 kit = ServoKit(channels=16,address=0x40)
 kit1=ServoKit(channels=16,address=0x41)
-host_name = '192.168.142.198'  # IP Address of Raspberry Pi
+host_name = '192.168.142.198'  
 host_port = 8000
 
 
@@ -88,7 +88,7 @@ class MyServer(BaseHTTPRequestHandler):
             print("close")
             kit1.servo[1].angle=180
         print("LED is {}".format(post_data))
-        self._redirect('/')  # Redirect back to the root url
+        self._redirect('/')  
 
 
 def start():

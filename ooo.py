@@ -1,7 +1,3 @@
-
-#!/usr/bin/env python3
-
-
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import board
@@ -14,9 +10,6 @@ kit = ServoKit(channels=16,address=0x40)
 kit1=ServoKit(channels=16,address=0x41)
 host_name = '192.168.142.198'  # IP Address of Raspberry Pi
 host_port = 8000
-
-
-
 
 
 def getTemperature():
@@ -98,11 +91,7 @@ class MyServer(BaseHTTPRequestHandler):
         self._redirect('/')  # Redirect back to the root url
 
 
-# # # # # Main # # # # #
-
 def start():
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
     http_server.serve_forever()
-
-
